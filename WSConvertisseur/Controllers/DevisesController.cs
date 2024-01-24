@@ -38,6 +38,8 @@ namespace WSConvertisseur.Controllers
         /// <returns>Devise correspondant à l'ID spécifié.</returns>
         /// <response code="404"></response>
         // GET api/<DevisesController>/5
+        [ProducesResponseType(200)]
+        [ProducesResponseType(404)]
         [HttpGet("{id}", Name = "GetDevise")]
         public ActionResult<Devise> GetById(int id)
         {
@@ -58,6 +60,8 @@ namespace WSConvertisseur.Controllers
         /// <response code="201"></response>
         /// <response code="400"></response>
         // POST api/<DevisesController>
+        [ProducesResponseType(400)]
+        [ProducesResponseType(201)]
         [HttpPost]
         public ActionResult<Devise> Post([FromBody] Devise devise)
         {
@@ -79,6 +83,9 @@ namespace WSConvertisseur.Controllers
         /// <response code="400"></response>
         /// <response code="404"></response>
         // PUT api/<DevisesController>/5
+        [ProducesResponseType(400)]
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200)]
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Devise devise)
         {
@@ -107,6 +114,8 @@ namespace WSConvertisseur.Controllers
         /// <response code="404"></response>
         /// <response code="200"></response>
         // DELETE api/<DevisesController>/5
+        [ProducesResponseType(404)]
+        [ProducesResponseType(200)]
         [HttpDelete("{id}")]
         public ActionResult<Devise> Delete(int id)
         {

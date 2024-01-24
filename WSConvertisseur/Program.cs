@@ -23,3 +23,11 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+builder.Services.AddSwaggerGen(
+    doc =>
+    {
+        var xmlFile = Path.ChangeExtension(typeof(Program).Assembly.Location, ".xml");
+        doc.IncludeXmlComments(xmlFile);
+    }
+);
