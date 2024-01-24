@@ -29,10 +29,16 @@ namespace WSConvertisseur.Controllers
         }
 
         // GET api/<DevisesController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{id}", Name = "GetDevise")]
+        public ActionResult<Devise> GetById(int id)
         {
-            return "value";
+            Devise? devise = (from d in devises where d.Id == id select d).FirstOrDefault();
+            // Devise? devise = devises.FirstOrDefault((d) => d.Id == id); //meme chose mais lambda expression
+            if (devise == null)
+            {
+                return NotFound();
+            }
+            return devise;
         }
 
         // POST api/<DevisesController>
