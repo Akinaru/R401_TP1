@@ -1,4 +1,6 @@
-﻿namespace WSConvertisseur.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WSConvertisseur.Models
 {
     public class Devise
     {
@@ -13,6 +15,7 @@
             set { this.id = value; }
         }
 
+        [Required]
         public string? NomDevise
         {
             get { return this.nomDevise; }
